@@ -2,10 +2,12 @@ import express from "express";
 import bodyParser from "body-parser";
 import ContactController from "./controllers/contact";
 import errorHandler from "./middlewares/errorHandler";
+import morgan from "morgan";
 
 const app = express();
 
 app.use(bodyParser.json());
+app.use(morgan('combined'))
 
 app.post("/identify", ContactController.identifyOrCreateContact);
 
