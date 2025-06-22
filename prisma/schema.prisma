@@ -1,0 +1,26 @@
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./bitespeed.db"
+}
+
+model Contact {
+  id             Int       @id @default(autoincrement())
+  phoneNumber    String?   
+  email          String?   
+  linkedId       Int?       
+  linkPrecedence LinkPrecedence     @default(primary)
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+  deletedAt      DateTime?
+}
+
+enum LinkPrecedence {
+  primary
+  secondary
+}
