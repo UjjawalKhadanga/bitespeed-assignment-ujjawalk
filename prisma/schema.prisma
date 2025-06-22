@@ -6,7 +6,7 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = "file:./bitespeed.db"
+  url      = "file:../db/bitespeed.db"
 }
 
 model Contact {
